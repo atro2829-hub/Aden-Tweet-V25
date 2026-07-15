@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">عدن تويت</string>
+
+    <!-- Auth -->
+    <string name="welcome_title">شاهد ما يحدث في العالم الآن</string>
+    <string name="welcome_subtitle">انضم إلى المحادثة. شارك أفكارك. تواصل مع الناس.</string>
+    <string name="login_title">تسجيل الدخول إلى عدن تويت</string>
+    <string name="login_email_hint">البريد الإلكتروني أو اسم المستخدم</string>
+    <string name="login_password_hint">كلمة المرور</string>
+    <string name="login_button">تسجيل الدخول</string>
+    <string name="login_forgot">نسيت كلمة المرور؟</string>
+    <string name="login_no_account">ليس لديك حساب؟ <b>سجّل الآن</b></string>
+    <string name="login_google">المتابعة باستخدام جوجل</string>
+    <string name="register_title">أنشئ حسابك</string>
+    <string name="register_button">إنشاء حساب</string>
+    <string name="register_has_account">لديك حساب بالفعل؟ <b>سجّل الدخول</b></string>
+    <string name="forgot_password_title">إعادة تعيين كلمة المرور</string>
+    <string name="forgot_password_instruction">أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين.</string>
+    <string name="forgot_password_button">إرسال رابط إعادة التعيين</string>
+    <string name="phone_verify_title">تحقق من هاتفك</string>
+    <string name="phone_verify_instruction">أرسلنا رمزًا مكونًا من 6 أرقام إلى %1$s</string>
+    <string name="phone_verify_button">تحقق</string>
+
+    <!-- Bottom Nav -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_explore">استكشاف</string>
+    <string name="nav_notifications">الإشعارات</string>
+    <string name="nav_messages">الرسائل</string>
+
+    <!-- Home -->
+    <string name="home_for_you">لك</string>
+    <string name="home_following">المتابَعون</string>
+
+    <!-- Post -->
+    <string name="post_placeholder">ماذا يحدث؟!</string>
+    <string name="post_character_limit">280</string>
+    <string name="post_reply">انشر ردك</string>
+    <string name="post_quote">أضف تعليقًا</string>
+    <string name="post_create_button">نشر</string>
+    <string name="post_delete_confirm">حذف هذا المنشور؟</string>
+    <string name="post_deleted">تم حذف هذا المنشور</string>
+    <string name="post_pinned">مثبّت</string>
+
+    <!-- Engagement -->
+    <string name="reply">رد</string>
+    <string name="retweet">إعادة نشر</string>
+    <string name="like">إعجاب</string>
+    <string name="share">مشاركة</string>
+    <string name="bookmark">حفظ</string>
+    <string name="views">مشاهدات</string>
+
+    <!-- Profile -->
+    <string name="profile_join_date">انضم في %1$s</string>
+    <string name="profile_following">متابَعون</string>
+    <string name="profile_followers">متابِعون</string>
+    <string name="profile_edit">تعديل الملف الشخصي</string>
+    <string name="profile_follow">متابعة</string>
+    <string name="profile_following_btn">يُتابَع</string>
+    <string name="profile_posts">المنشورات</string>
+    <string name="profile_replies">الردود</string>
+    <string name="profile_media">الوسائط</string>
+    <string name="profile_likes">الإعجابات</string>
+    <string name="profile_mutual">متبادل</string>
+
+    <!-- Explore -->
+    <string name="explore_search_hint">ابحث في عدن تويت</string>
+    <string name="trending">الأكثر رواجًا</string>
+
+    <!-- Notifications -->
+    <string name="notifications_all">الكل</string>
+    <string name="notifications_mentions">الإشارات</string>
+    <string name="notification_liked">أعجب %1$s بمنشورك</string>
+    <string name="notification_retweeted">أعاد %1$s نشر منشورك</string>
+    <string name="notification_followed">بدأ %1$s بمتابعتك</string>
+    <string name="notification_replied">ردّ %1$s على منشورك</string>
+    <string name="notification_mentioned">أشار إليك %1$s</string>
+    <string name="notification_messaged">أرسل لك %1$s رسالة</string>
+
+    <!-- Messages -->
+    <string name="messages_title">الرسائل</string>
+    <string name="messages_new">ابدأ محادثة جديدة</string>
+    <string name="message_placeholder">ابدأ رسالة جديدة</string>
+    <string name="message_send">إرسال</string>
+    <string name="messages_empty">لا توجد محادثات بعد</string>
+
+    <!-- Bookmarks -->
+    <string name="bookmarks_title">المحفوظات</string>
+    <string name="bookmarks_empty">لا توجد محفوظات بعد. احفظ المنشورات لقراءتها لاحقًا.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_account">الحساب</string>
+    <string name="settings_privacy">الخصوصية والسلامة</string>
+    <string name="settings_notifications">الإشعارات</string>
+    <string name="settings_appearance">العرض</string>
+    <string name="settings_security">الأمان وحساب الوصول</string>
+    <string name="settings_blocked">الحسابات المحظورة</string>
+    <string name="settings_muted">الحسابات المكتومة</string>
+    <string name="settings_deactivate">تعطيل الحساب</string>
+    <string name="settings_delete">حذف الحساب</string>
+
+    <!-- Common -->
+    <string name="error_generic">حدث خطأ ما. يرجى المحاولة مرة أخرى.</string>
+    <string name="error_network">لا يوجد اتصال بالإنترنت</string>
+    <string name="error_auth">فشل المصادقة</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="loading">جارٍ التحميل…</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="delete">حذف</string>
+    <string name="confirm">تأكيد</string>
+    <string name="done">تم</string>
+    <string name="back">رجوع</string>
+    <string name="next">التالي</string>
+    <string name="skip">تخطي</string>
+    <string name="offline_banner">أنت غير متصل بالإنترنت</string>
+    <string name="new_posts">%1$d منشورات جديدة</string>
+
+    <!-- Report -->
+    <string name="report_title">إبلاغ</string>
+    <string name="report_post">الإبلاغ عن هذا المنشور</string>
+    <string name="report_user">الإبلاغ عن هذا المستخدم</string>
+
+    <!-- Metrics -->
+    <string name="metrics_title">تحليلات المنشور</string>
+    <string name="metrics_impressions">الانطباعات</string>
+    <string name="metrics_engagements">التفاعلات</string>
+    <string name="metrics_detail_expands">التوسعات التفصيلية</string>
+    <string name="metrics_link_clicks">نقرات الروابط</string>
+    <string name="metrics_media_views">مشاهدات الوسائط</string>
+
+    <!-- Security -->
+    <string name="security_2fa">المصادقة الثنائية</string>
+    <string name="security_change_password">تغيير كلمة المرور</string>
+    <string name="security_linked_accounts">الحسابات المرتبطة</string>
+    <string name="security_sessions">إدارة الجلسات</string>
+
+    <!-- Appearance -->
+    <string name="appearance_light">فاتح</string>
+    <string name="appearance_dark">داكن</string>
+    <string name="appearance_system">النظام</string>
+    <string name="appearance_font_size">حجم الخط</string>
+</resources>

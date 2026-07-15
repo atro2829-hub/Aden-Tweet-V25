@@ -1,0 +1,211 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        "profile": {
+          ".read": true,
+          ".write": "$uid === auth.uid",
+          "email": { ".validate": true },
+          "username": { ".validate": "newData.isString() && newData.length() >= 4 && newData.length() <= 15" },
+          "displayName": { ".validate": "newData.isString() && newData.length() <= 50" },
+          "bio": { ".validate": "newData.isString() && newData.length() <= 160" },
+          "avatarBase64": { ".validate": "newData.isString() && newData.length() < 300000" },
+          "bannerBase64": { ".validate": "newData.isString() && newData.length() < 750000" },
+          "isVerified": { ".validate": "newData.isBoolean()" },
+          "isPremium": { ".validate": "newData.isBoolean()" },
+          "followerCount": { ".validate": "newData.isNumber()" },
+          "followingCount": { ".validate": "newData.isNumber()" },
+          "postCount": { ".validate": "newData.isNumber()" },
+          "isPrivate": { ".validate": "newData.isBoolean()" },
+          "createdAt": { ".validate": "newData.isNumber()" },
+          "fcmToken": { ".validate": true },
+          "lastSeen": { ".validate": "newData.isNumber()" },
+          "isOnline": { ".validate": "newData.isBoolean()" },
+          "location": { ".validate": true },
+          "website": { ".validate": true },
+          "$other": { ".validate": false }
+        },
+        "followers": {
+          ".read": true,
+          ".write": "$uid === auth.uid",
+          "$followerUid": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "following": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid",
+          "$followingUid": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "posts": {
+          ".read": true,
+          ".write": "$uid === auth.uid",
+          ".indexOn": [".value"],
+          "$postId": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "bookmarks": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid",
+          ".indexOn": [".value"],
+          "$postId": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "mutedUsers": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid",
+          "$targetUid": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "blockedUsers": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid",
+          "$targetUid": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "notifications": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid",
+          ".indexOn": ["createdAt"],
+          "$notificationId": {
+            ".validate": "newData.isString() || newData.isNumber() || newData.isBoolean() || newData.isNull()"
+          }
+        }
+      },
+      "searchIndex": {
+        ".indexOn": ["username"],
+        ".read": true,
+        ".write": "auth != null"
+      }
+    },
+    "posts": {
+      ".read": true,
+      ".indexOn": ["createdAt", "authorUid", "likeCount"],
+      "$postId": {
+        ".write": "auth != null && (data.child('authorUid').val() === auth.uid || !data.exists())",
+        "authorUid": { ".validate": "newData.isString() && newData.length() > 0" },
+        "content": { ".validate": "newData.isString() && newData.length() <= 280" },
+        "mediaItems": { ".validate": "newData.isList()" },
+        "createdAt": { ".validate": "newData.isNumber()" },
+        "likeCount": { ".validate": "newData.isNumber()" },
+        "retweetCount": { ".validate": "newData.isNumber()" },
+        "replyCount": { ".validate": "newData.isNumber()" },
+        "viewCount": { ".validate": "newData.isNumber()" },
+        "isPinned": { ".validate": "newData.isBoolean()" },
+        "isSensitive": { ".validate": "newData.isBoolean()" },
+        "visibility": { ".validate": "newData.isString() && (newData === 'public' || newData === 'followers' || newData === 'mentioned')" },
+        "replyToPostId": { ".validate": "newData.isString()" },
+        "quotePostId": { ".validate": "newData.isString()" },
+        "isEdited": { ".validate": "newData.isBoolean()" },
+        "likes": {
+          ".read": true,
+          ".indexOn": [".value"],
+          "$uid": {
+            ".write": "$uid === auth.uid",
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "retweets": {
+          ".read": true,
+          ".indexOn": [".value"],
+          "$uid": {
+            ".write": "$uid === auth.uid",
+            ".validate": "newData === true || newData === null || newData.isNumber()"
+          }
+        },
+        "comments": {
+          ".read": true,
+          ".indexOn": [".value"],
+          "$commentId": {
+            ".validate": "newData === true || newData === null"
+          }
+        },
+        "poll": {
+          ".validate": "newData.isNull() || newData.hasChildren(['options', 'endsAt', 'pollId'])"
+        }
+      }
+    },
+    "feeds": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "auth != null",
+        ".indexOn": [".value"],
+        "$feedItemId": {
+          ".validate": "newData === true || newData === null"
+        }
+      }
+    },
+    "messages": {
+      "$conversationId": {
+        "messages": {
+          ".read": "auth != null",
+          ".write": "auth != null",
+          ".indexOn": ["createdAt", "senderUid"],
+          "$messageId": {
+            "senderUid": { ".validate": "newData.isString()" },
+            "content": { ".validate": "newData.isString()" },
+            "mediaBase64": { ".validate": "newData.isString() || newData.isNull()" },
+            "mediaType": { ".validate": "newData.isString() || newData.isNull()" },
+            "createdAt": { ".validate": "newData.isNumber()" },
+            "isRead": { ".validate": "newData.isBoolean()" },
+            "isDeleted": { ".validate": "newData.isBoolean()" },
+            "reactions": {
+              "$uid": {
+                ".write": "$uid === auth.uid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "conversations": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["lastMessageTime"],
+      "$conversationId": {
+        "participants": {
+          "$uid": {
+            ".validate": "newData === true"
+          }
+        },
+        "lastMessage": { ".validate": "newData.isString()" },
+        "lastMessageTime": { ".validate": "newData.isNumber()" },
+        "unreadCount": {
+          "$uid": {
+            ".write": "$uid === auth.uid",
+            ".validate": "newData.isNumber()"
+          }
+        },
+        "archived": { ".validate": "newData.isBoolean()" }
+      }
+    },
+    "trending": {
+      ".read": true,
+      ".write": "auth != null",
+      "$date": {
+        "$hashtag": {
+          ".validate": "newData.isNumber()"
+        }
+      }
+    },
+    "reports": {
+      ".read": false,
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"],
+      "$reportId": {
+        ".validate": "newData.hasChildren(['reporterUid', 'targetId', 'type', 'reason'])",
+        "reporterUid": { ".validate": "newData.isString()" },
+        "targetId": { ".validate": "newData.isString()" },
+        "type": { ".validate": "newData.isString() && (newData === 'post' || newData === 'user' || newData === 'comment')" },
+        "reason": { ".validate": "newData.isString()" },
+        "createdAt": { ".validate": "newData.isNumber()" }
+      }
+    }
+  }
+}
