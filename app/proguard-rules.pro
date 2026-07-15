@@ -29,17 +29,17 @@
 
 # Gson
 -keep class com.google.gson.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
 -keep class sun.misc.Unsafe { *; }
--keepclassmembers class * {
-    ** <init>(...);
-}
-
-# Retrofit (if used later)
--dontwarn okhttp3.**
--dontwarn retrofit2.**
--keep class retrofit2.** { *; }
 
 # Keep serialization
 -keepclassmembers,allowobfuscation class * {
     @com.google.gson.annotations.SerializedName <fields>;
+}
+
+# Keep enum values
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
 }
